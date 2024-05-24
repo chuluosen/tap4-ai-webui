@@ -1,3 +1,4 @@
+import Head from 'next/head';
 import { Metadata } from 'next';
 import dynamic from 'next/dynamic';
 import Link from 'next/link';
@@ -34,6 +35,19 @@ export default async function Page() {
   const res = await getWebNavigationList({ pageNum: 1, pageSize: 20 });
 
   return (
+    <Head>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-57STDZDY68"></script>
+  <script
+    dangerouslySetInnerHTML={{
+      __html: `
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-57STDZDY68');
+      `,
+    }}
+  />
+</Head>
     <div className='relative w-full'>
       <div className='relative mx-auto w-full max-w-pc flex-1 px-3 lg:px-0'>
         <div className='my-5 flex flex-col text-center lg:mx-auto lg:my-10 lg:gap-1'>
